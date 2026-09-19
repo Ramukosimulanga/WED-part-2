@@ -1,0 +1,2637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Next Level Gaming & Esports Arena</title>
+
+<!-- GOOGLE FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ==================================================
+   RESET
+================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#04070d;
+    color:#ffffff;
+    font-family:'Poppins',sans-serif;
+    min-height:100vh;
+}
+
+
+/* ==================================================
+   VARIABLES
+================================================== */
+
+:root{
+
+    --primary:#00e5ff;
+    --secondary:#00b8ff;
+
+    --dark:#04070d;
+    --dark2:#020305;
+
+    --card:rgba(255,255,255,0.05);
+
+    --border:rgba(0,229,255,0.25);
+
+    --text:#ffffff;
+    --muted:#a8b0bd;
+
+}
+
+
+/* ==================================================
+   BODY
+================================================== */
+
+body{
+    overflow-x:hidden;
+}
+
+
+/* ==================================================
+   SINGLE PAGE SYSTEM
+================================================== */
+
+/*
+   Only one section will be visible at a time.
+   The JavaScript later will decide which
+   section is active.
+*/
+
+.page-section{
+    display:none;
+}
+
+.page-section.active-page{
+    display:block;
+}
+
+
+/* ==================================================
+   CONTAINER
+================================================== */
+
+.container{
+
+    width:90%;
+    max-width:1200px;
+
+    margin:auto;
+
+}
+
+
+/* ==================================================
+   BUTTONS
+================================================== */
+
+.btn{
+
+    display:inline-block;
+
+    padding:14px 28px;
+
+    border:1px solid var(--primary);
+
+    color:var(--primary);
+
+    text-decoration:none;
+
+    font-family:'Orbitron',sans-serif;
+
+    font-weight:600;
+
+    letter-spacing:1px;
+
+    border-radius:5px;
+
+    transition:0.3s;
+
+    cursor:pointer;
+
+}
+
+
+.btn:hover{
+
+    background:var(--primary);
+
+    color:#020305;
+
+    box-shadow:
+        0 0 10px var(--primary),
+        0 0 25px rgba(0,229,255,0.4);
+
+}
+
+
+/* ==================================================
+   SECTION TITLE
+================================================== */
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:60px;
+
+}
+
+
+.section-title h2{
+
+    font-family:'Orbitron',sans-serif;
+
+    font-size:42px;
+
+    margin-bottom:15px;
+
+}
+
+
+.section-title h2 span{
+
+    color:var(--primary);
+
+}
+
+
+.section-title p{
+
+    color:var(--muted);
+
+    font-size:16px;
+
+}
+
+
+/* ==================================================
+   HEADER
+================================================== */
+
+header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    width:100%;
+
+    background:rgba(2,3,5,0.95);
+
+    backdrop-filter:blur(12px);
+
+    border-bottom:1px solid var(--border);
+
+}
+
+
+.header-container{
+
+    width:90%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+    min-height:80px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+}
+
+
+/* ==================================================
+   LOGO
+================================================== */
+
+.logo{
+
+    font-family:'Orbitron',sans-serif;
+
+    font-size:22px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    color:#ffffff;
+
+}
+
+
+.logo span{
+
+    color:var(--primary);
+
+}
+
+
+/* ==================================================
+   NAVIGATION
+================================================== */
+
+#navbar{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:30px;
+
+}
+
+
+#navbar a{
+
+    color:#ffffff;
+
+    text-decoration:none;
+
+    font-family:'Orbitron',sans-serif;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    letter-spacing:1px;
+
+    transition:0.3s;
+
+    position:relative;
+
+}
+
+
+#navbar a:hover{
+
+    color:var(--primary);
+
+}
+
+
+#navbar a.active{
+
+    color:var(--primary);
+
+}
+
+
+#navbar a.active::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-8px;
+
+    width:100%;
+
+    height:2px;
+
+    background:var(--primary);
+
+    box-shadow:0 0 8px var(--primary);
+
+}
+
+
+/* ==================================================
+   MOBILE MENU BUTTON
+================================================== */
+
+.menu-toggle{
+
+    display:none;
+
+    font-size:28px;
+
+    color:var(--primary);
+
+    cursor:pointer;
+
+}
+
+
+/* ==================================================
+   RESPONSIVE NAVIGATION
+================================================== */
+
+@media(max-width:768px){
+
+    .menu-toggle{
+
+        display:block;
+
+    }
+
+
+    #navbar{
+
+        position:absolute;
+
+        top:80px;
+
+        left:0;
+
+        width:100%;
+
+        background:#020305;
+
+        border-top:1px solid var(--border);
+
+        display:none;
+
+        flex-direction:column;
+
+        gap:0;
+
+    }
+
+
+    #navbar.active{
+
+        display:flex;
+
+    }
+
+
+    #navbar a{
+
+        width:100%;
+
+        text-align:center;
+
+        padding:18px 0;
+
+        border-bottom:1px solid rgba(255,255,255,0.08);
+
+    }
+
+
+    #navbar a.active::after{
+
+        display:none;
+
+    }
+
+
+    .section-title h2{
+
+        font-size:32px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+<!-- ==================================================
+     HEADER
+================================================== -->
+
+<header>
+
+    <div class="header-container">
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            NEXT <span>LEVEL</span>
+
+        </div>
+
+
+        <!-- MOBILE MENU -->
+
+        <div class="menu-toggle" id="menuToggle">
+
+            ☰
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav id="navbar">
+
+            <a href="#home" class="active">
+                Home
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+            <a href="#packages">
+                Packages
+            </a>
+
+            <a href="#booking">
+                Booking
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- ==================================================
+     MAIN WEBSITE CONTENT STARTS HERE
+================================================== -->
+
+<main>
+<!-- ==================================================
+     HOME PAGE
+================================================== -->
+
+<section id="home" class="page-section active-page">
+
+    <div class="container">
+
+        <div class="hero">
+
+            <div class="hero-content">
+
+                <p class="hero-label">
+                    WELCOME TO
+                </p>
+
+                <h1>
+                    NEXT LEVEL GAMING
+                    <br>
+                    <span>& ESPORTS ARENA</span>
+                </h1>
+
+                <h2>
+                    Where Gamers Become Champions
+                </h2>
+
+                <p>
+                    Welcome to
+                    <strong>Next Level Gaming & Esports Arena</strong>,
+                    a modern gaming destination where technology,
+                    competition and entertainment come together.
+                </p>
+
+                <p>
+                    Experience high-performance gaming,
+                    competitive esports, immersive virtual reality,
+                    racing simulators and unforgettable gaming events.
+                </p>
+
+
+                <!-- HOME BUTTONS -->
+
+                <div class="hero-buttons">
+
+                    <a href="#about" class="btn">
+                        ABOUT US
+                    </a>
+
+                    <a href="#packages" class="btn">
+                        VIEW PACKAGES
+                    </a>
+
+                    <a href="#booking" class="btn">
+                        BOOK NOW
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- HOME IMAGE -->
+
+            <div class="hero-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1400&q=80"
+                    alt="Gaming Arena"
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+    <!-- ==================================================
+     ABOUT PAGE
+================================================== -->
+
+<section id="about" class="page-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                ABOUT <span>GAMEZONE</span>
+            </h2>
+
+            <p>
+                Where technology, competition and gaming become one.
+            </p>
+
+        </div>
+
+
+        <div class="about-container">
+
+
+            <!-- ABOUT TEXT -->
+
+            <div class="about-text">
+
+                <h3>
+                    THE NEXT LEVEL OF GAMING
+                </h3>
+
+                <p>
+
+                    Next Level Gaming & Esports Arena is a
+                    professional gaming destination designed
+                    for gamers, esports players, families,
+                    school groups and corporate teams.
+
+                </p>
+
+                <p>
+
+                    Established in <strong>2023</strong>,
+                    the arena brings together modern gaming
+                    technology, competitive gaming and
+                    entertainment in one exciting environment.
+
+                </p>
+
+                <p>
+
+                    Our goal is to create an unforgettable
+                    gaming experience where casual players
+                    can have fun and competitive gamers can
+                    develop their skills.
+
+                </p>
+
+
+                <!-- ABOUT INFORMATION -->
+
+                <div class="about-info">
+
+                    <div class="info-box">
+
+                        <h4>ESTABLISHED</h4>
+
+                        <p>2023</p>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <h4>LOCATION</h4>
+
+                        <p>Johannesburg, South Africa</p>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <h4>FOUNDER</h4>
+
+                        <p>Jason Naidoo</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ABOUT IMAGE -->
+
+            <div class="about-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=1400&q=80"
+                    alt="Next Level Gaming Arena"
+                >
+
+            </div>
+
+
+        </div>
+
+
+        <!-- WHAT WE OFFER -->
+
+        <div class="about-offer">
+
+            <h3>
+                WHAT WE <span>OFFER</span>
+            </h3>
+
+            <div class="offer-grid">
+
+
+                <div class="offer-card">
+
+                    <h4>
+                        HIGH-PERFORMANCE GAMING
+                    </h4>
+
+                    <p>
+                        Enjoy powerful gaming systems
+                        designed for smooth and immersive
+                        gaming experiences.
+                    </p>
+
+                </div>
+
+
+                <div class="offer-card">
+
+                    <h4>
+                        ESPORTS
+                    </h4>
+
+                    <p>
+                        Take part in competitive gaming,
+                        training sessions and esports
+                        tournaments.
+                    </p>
+
+                </div>
+
+
+                <div class="offer-card">
+
+                    <h4>
+                        VR EXPERIENCE
+                    </h4>
+
+                    <p>
+                        Enter immersive virtual worlds
+                        with exciting virtual reality
+                        experiences.
+                    </p>
+
+                </div>
+
+
+                <div class="offer-card">
+
+                    <h4>
+                        GAMING EVENTS
+                    </h4>
+
+                    <p>
+                        Enjoy birthday parties, school
+                        outings, corporate events and
+                        gaming competitions.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- ABOUT BUTTON -->
+
+        <div class="page-button">
+
+            <a href="#packages" class="btn">
+                EXPLORE OUR PACKAGES
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ==================================================
+     PACKAGES PAGE
+================================================== -->
+
+<section id="packages" class="page-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                OUR <span>PACKAGES</span>
+            </h2>
+
+            <p>
+                Choose your gaming experience and take
+                your gaming to the next level.
+            </p>
+
+        </div>
+
+
+        <!-- PACKAGE GRID -->
+
+        <div class="packages-grid">
+
+
+            <!-- ULTIMATE GAMER PASS -->
+
+            <div class="package-card">
+
+                <div class="package-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=900&q=80"
+                        alt="Ultimate Gamer Pass"
+                    >
+
+                </div>
+
+                <div class="package-content">
+
+                    <h3>
+                        ULTIMATE GAMER PASS
+                    </h3>
+
+                    <p class="package-price">
+                        R1500
+                    </p>
+
+                    <p>
+                        Unlimited gaming access for a full
+                        day with high-performance gaming
+                        equipment and tournament entry.
+                    </p>
+
+                    <a href="#ultimate" class="btn">
+                        VIEW DETAILS
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- VIP GAMING EXPERIENCE -->
+
+            <div class="package-card">
+
+                <div class="package-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=900&q=80"
+                        alt="VIP Gaming Experience"
+                    >
+
+                </div>
+
+                <div class="package-content">
+
+                    <h3>
+                        VIP GAMING EXPERIENCE
+                    </h3>
+
+                    <p class="package-price">
+                        R1500
+                    </p>
+
+                    <p>
+                        Enjoy private gaming booths,
+                        premium equipment, refreshments
+                        and personal gaming assistance.
+                    </p>
+
+                    <a href="#vip" class="btn">
+                        VIEW DETAILS
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- ESPORTS TRAINING -->
+
+            <div class="package-card">
+
+                <div class="package-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=900&q=80"
+                        alt="Esports Training"
+                    >
+
+                </div>
+
+                <div class="package-content">
+
+                    <h3>
+                        ESPORTS TRAINING
+                    </h3>
+
+                    <p class="package-price">
+                        R1500
+                    </p>
+
+                    <p>
+                        Professional coaching, strategy
+                        development and competitive gaming
+                        preparation.
+                    </p>
+
+                    <a href="#esports" class="btn">
+                        VIEW DETAILS
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- BIRTHDAY PARTY -->
+
+            <div class="package-card">
+
+                <div class="package-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=900&q=80"
+                        alt="Birthday Party Package"
+                    >
+
+                </div>
+
+                <div class="package-content">
+
+                    <h3>
+                        BIRTHDAY PARTY
+                    </h3>
+
+                    <p class="package-price">
+                        R1500
+                    </p>
+
+                    <p>
+                        Multiplayer gaming competitions,
+                        decorations, catering and prizes
+                        for an unforgettable celebration.
+                    </p>
+
+                    <a href="#birthday" class="btn">
+                        VIEW DETAILS
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- VIRTUAL REALITY -->
+
+            <div class="package-card">
+
+                <div class="package-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?auto=format&fit=crop&w=900&q=80"
+                        alt="Virtual Reality Experience"
+                    >
+
+                </div>
+
+                <div class="package-content">
+
+                    <h3>
+                        VIRTUAL REALITY
+                    </h3>
+
+                    <p class="package-price">
+                        R750
+                    </p>
+
+                    <p>
+                        Experience immersive virtual worlds
+                        using advanced VR technology and
+                        interactive experiences.
+                    </p>
+
+                    <a href="#vr" class="btn">
+                        VIEW DETAILS
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- RACING SIMULATOR -->
+
+            <div class="package-card">
+
+                <div class="package-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1553778263-73a83bab9b0c?auto=format&fit=crop&w=900&q=80"
+                        alt="Racing Simulator Challenge"
+                    >
+
+                </div>
+
+                <div class="package-content">
+
+                    <h3>
+                        RACING SIMULATOR
+                    </h3>
+
+                    <p class="package-price">
+                        R750
+                    </p>
+
+                    <p>
+                        Take the driver's seat and compete
+                        using immersive racing simulators.
+                    </p>
+
+                    <a href="#racing" class="btn">
+                        VIEW DETAILS
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- ESCAPE ROOM -->
+
+            <div class="package-card">
+
+                <div class="package-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1511882150382-421056c89033?auto=format&fit=crop&w=900&q=80"
+                        alt="Escape Room Challenge"
+                    >
+
+                </div>
+
+                <div class="package-content">
+
+                    <h3>
+                        ESCAPE ROOM
+                    </h3>
+
+                    <p class="package-price">
+                        R750
+                    </p>
+
+                    <p>
+                        Work together, solve challenges and
+                        complete an exciting digital escape
+                        room experience.
+                    </p>
+
+                    <a href="#escape" class="btn">
+                        VIEW DETAILS
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- BOOKING BUTTON -->
+
+        <div class="page-button">
+
+            <a href="#booking" class="btn">
+                BOOK YOUR EXPERIENCE
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ==================================================
+     ULTIMATE GAMER PASS PAGE
+================================================== -->
+
+<section id="ultimate" class="page-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                ULTIMATE <span>GAMER PASS</span>
+            </h2>
+
+            <p>
+                The complete gaming experience for serious gamers.
+            </p>
+
+        </div>
+
+
+        <div class="details-container">
+
+
+            <!-- PACKAGE IMAGE -->
+
+            <div class="details-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1400&q=80"
+                    alt="Ultimate Gamer Pass"
+                >
+
+            </div>
+
+
+            <!-- PACKAGE INFORMATION -->
+
+            <div class="details-content">
+
+                <h3>
+                    PACKAGE FEE
+                </h3>
+
+                <p class="price">
+                    R1500
+                </p>
+
+
+                <h3>
+                    PURPOSE
+                </h3>
+
+                <p>
+
+                    The Ultimate Gamer Pass is designed
+                    for gamers who want to spend a full
+                    day enjoying a wide range of gaming
+                    experiences.
+
+                </p>
+
+                <p>
+
+                    Players can enjoy high-performance
+                    gaming systems, console gaming and
+                    competitive tournament experiences
+                    throughout the day.
+
+                </p>
+
+
+                <h3>
+                    INCLUDES
+                </h3>
+
+                <ul class="package-list">
+
+                    <li>
+                        ✔ High-Performance Gaming PCs
+                    </li>
+
+                    <li>
+                        ✔ PlayStation 5
+                    </li>
+
+                    <li>
+                        ✔ Xbox Series X
+                    </li>
+
+                    <li>
+                        ✔ Unlimited Gaming Access
+                    </li>
+
+                    <li>
+                        ✔ Tournament Entry
+                    </li>
+
+                    <li>
+                        ✔ Full-Day Gaming Experience
+                    </li>
+
+                </ul>
+
+
+                <div class="details-buttons">
+
+                    <a href="#booking" class="btn">
+                        BOOK THIS PACKAGE
+                    </a>
+
+                    <a href="#packages" class="btn">
+                        BACK TO PACKAGES
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ==================================================
+     VIP GAMING EXPERIENCE PAGE
+================================================== -->
+
+<section id="vip" class="page-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                VIP <span>GAMING EXPERIENCE</span>
+            </h2>
+
+            <p>
+                Premium gaming for players who want the best.
+            </p>
+
+        </div>
+
+
+        <div class="details-container">
+
+
+            <!-- PACKAGE IMAGE -->
+
+            <div class="details-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=1400&q=80"
+                    alt="VIP Gaming Experience"
+                >
+
+            </div>
+
+
+            <!-- PACKAGE INFORMATION -->
+
+            <div class="details-content">
+
+                <h3>
+                    PACKAGE FEE
+                </h3>
+
+                <p class="price">
+                    R1500
+                </p>
+
+
+                <h3>
+                    PURPOSE
+                </h3>
+
+                <p>
+
+                    The VIP Gaming Experience is designed
+                    for players who want a more private,
+                    comfortable and premium gaming
+                    environment.
+
+                </p>
+
+                <p>
+
+                    Guests can enjoy premium equipment,
+                    private gaming spaces and additional
+                    support throughout their gaming session.
+
+                </p>
+
+
+                <h3>
+                    INCLUDES
+                </h3>
+
+                <ul class="package-list">
+
+                    <li>
+                        ✔ Private Gaming Booth
+                    </li>
+
+                    <li>
+                        ✔ Premium Gaming Equipment
+                    </li>
+
+                    <li>
+                        ✔ Refreshments
+                    </li>
+
+                    <li>
+                        ✔ Personal Gaming Assistance
+                    </li>
+
+                    <li>
+                        ✔ Premium Gaming Environment
+                    </li>
+
+                    <li>
+                        ✔ Dedicated Gaming Experience
+                    </li>
+
+                </ul>
+
+
+                <div class="details-buttons">
+
+                    <a href="#booking" class="btn">
+                        BOOK THIS PACKAGE
+                    </a>
+
+                    <a href="#packages" class="btn">
+                        BACK TO PACKAGES
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ==================================================
+     ESPORTS TRAINING PAGE
+================================================== -->
+
+<section id="esports" class="page-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                ESPORTS <span>TRAINING</span>
+            </h2>
+
+            <p>
+                Professional coaching for competitive gamers.
+            </p>
+
+        </div>
+
+
+        <div class="details-container">
+
+
+            <!-- PACKAGE IMAGE -->
+
+            <div class="details-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=1400&q=80"
+                    alt="Esports Training Package"
+                >
+
+            </div>
+
+
+            <!-- PACKAGE INFORMATION -->
+
+            <div class="details-content">
+
+                <h3>
+                    PACKAGE FEE
+                </h3>
+
+                <p class="price">
+                    R1500
+                </p>
+
+
+                <h3>
+                    PURPOSE
+                </h3>
+
+                <p>
+
+                    The Esports Training Package is designed
+                    for gamers who want to improve their
+                    competitive gaming skills.
+
+                </p>
+
+                <p>
+
+                    Participants receive professional
+                    coaching, practical training sessions
+                    and performance feedback to help them
+                    prepare for esports competitions.
+
+                </p>
+
+
+                <h3>
+                    INCLUDES
+                </h3>
+
+                <ul class="package-list">
+
+                    <li>
+                        ✔ Professional Strategy Coaching
+                    </li>
+
+                    <li>
+                        ✔ Match Analysis
+                    </li>
+
+                    <li>
+                        ✔ Practical Training Sessions
+                    </li>
+
+                    <li>
+                        ✔ Team Communication Exercises
+                    </li>
+
+                    <li>
+                        ✔ Performance Feedback
+                    </li>
+
+                    <li>
+                        ✔ Competitive Gaming Preparation
+                    </li>
+
+                </ul>
+
+
+                <div class="details-buttons">
+
+                    <a href="#booking" class="btn">
+                        BOOK THIS PACKAGE
+                    </a>
+
+                    <a href="#packages" class="btn">
+                        BACK TO PACKAGES
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ==================================================
+     BIRTHDAY PARTY PAGE
+================================================== -->
+
+<section id="birthday" class="page-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                BIRTHDAY <span>PARTY</span>
+            </h2>
+
+            <p>
+                Celebrate your special day with an unforgettable gaming experience.
+            </p>
+
+        </div>
+
+
+        <div class="details-container">
+
+
+            <!-- PACKAGE IMAGE -->
+
+            <div class="details-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1400&q=80"
+                    alt="Birthday Party Gaming Package"
+                >
+
+            </div>
+
+
+            <!-- PACKAGE INFORMATION -->
+
+            <div class="details-content">
+
+                <h3>
+                    PACKAGE FEE
+                </h3>
+
+                <p class="price">
+                    R1500
+                </p>
+
+
+                <h3>
+                    PURPOSE
+                </h3>
+
+                <p>
+
+                    The Birthday Party Package is designed
+                    to give gamers an exciting and memorable
+                    way to celebrate their special day.
+
+                </p>
+
+                <p>
+
+                    Guests can compete in multiplayer gaming
+                    activities while enjoying entertainment,
+                    catering and prizes.
+
+                </p>
+
+
+                <h3>
+                    INCLUDES
+                </h3>
+
+                <ul class="package-list">
+
+                    <li>
+                        ✔ Multiplayer Gaming Competitions
+                    </li>
+
+                    <li>
+                        ✔ Gaming Entertainment
+                    </li>
+
+                    <li>
+                        ✔ Party Decorations
+                    </li>
+
+                    <li>
+                        ✔ Catering
+                    </li>
+
+                    <li>
+                        ✔ Competition Prizes
+                    </li>
+
+                    <li>
+                        ✔ Birthday Celebration Experience
+                    </li>
+
+                </ul>
+
+
+                <div class="details-buttons">
+
+                    <a href="#booking" class="btn">
+                        BOOK THIS PACKAGE
+                    </a>
+
+                    <a href="#packages" class="btn">
+                        BACK TO PACKAGES
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ==================================================
+     VIRTUAL REALITY EXPERIENCE PAGE
+================================================== -->
+
+<section id="vr" class="page-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                VIRTUAL <span>REALITY</span>
+            </h2>
+
+            <p>
+                Step into another world with immersive VR gaming.
+            </p>
+
+        </div>
+
+
+        <div class="details-container">
+
+
+            <!-- PACKAGE IMAGE -->
+
+            <div class="details-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?auto=format&fit=crop&w=1400&q=80"
+                    alt="Virtual Reality Experience"
+                >
+
+            </div>
+
+
+            <!-- PACKAGE INFORMATION -->
+
+            <div class="details-content">
+
+                <h3>
+                    PACKAGE FEE
+                </h3>
+
+                <p class="price">
+                    R750
+                </p>
+
+
+                <h3>
+                    PURPOSE
+                </h3>
+
+                <p>
+
+                    The Virtual Reality Experience allows
+                    players to enter immersive digital worlds
+                    and experience gaming in a completely
+                    different way.
+
+                </p>
+
+                <p>
+
+                    Using modern VR technology, players can
+                    explore interactive environments, complete
+                    challenges and enjoy exciting virtual
+                    experiences.
+
+                </p>
+
+
+                <h3>
+                    INCLUDES
+                </h3>
+
+                <ul class="package-list">
+
+                    <li>
+                        ✔ VR Headset
+                    </li>
+
+                    <li>
+                        ✔ Immersive VR Games
+                    </li>
+
+                    <li>
+                        ✔ Interactive Virtual Experiences
+                    </li>
+
+                    <li>
+                        ✔ Guided VR Session
+                    </li>
+
+                    <li>
+                        ✔ Multiple VR Experiences
+                    </li>
+
+                    <li>
+                        ✔ Full Immersive Gaming Experience
+                    </li>
+
+                </ul>
+
+
+                <div class="details-buttons">
+
+                    <a href="#booking" class="btn">
+                        BOOK THIS PACKAGE
+                    </a>
+
+                    <a href="#packages" class="btn">
+                        BACK TO PACKAGES
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ==================================================
+     RACING SIMULATOR CHALLENGE PAGE
+================================================== -->
+
+<section id="racing" class="page-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                RACING <span>SIMULATOR</span>
+            </h2>
+
+            <p>
+                Feel the speed and compete like a professional driver.
+            </p>
+
+        </div>
+
+
+        <div class="details-container">
+
+
+            <!-- PACKAGE IMAGE -->
+
+            <div class="details-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1553778263-73a83bab9b0c?auto=format&fit=crop&w=1400&q=80"
+                    alt="Racing Simulator Challenge"
+                >
+
+            </div>
+
+
+            <!-- PACKAGE INFORMATION -->
+
+            <div class="details-content">
+
+                <h3>
+                    PACKAGE FEE
+                </h3>
+
+                <p class="price">
+                    R750
+                </p>
+
+
+                <h3>
+                    PURPOSE
+                </h3>
+
+                <p>
+
+                    The Racing Simulator Challenge gives
+                    players the opportunity to experience
+                    high-speed racing in an immersive
+                    simulator environment.
+
+                </p>
+
+                <p>
+
+                    Compete against friends, improve your
+                    driving skills and challenge yourself
+                    to achieve the fastest lap time.
+
+                </p>
+
+
+                <h3>
+                    INCLUDES
+                </h3>
+
+                <ul class="package-list">
+
+                    <li>
+                        ✔ Professional Racing Simulator
+                    </li>
+
+                    <li>
+                        ✔ Immersive Racing Experience
+                    </li>
+
+                    <li>
+                        ✔ Competitive Time Trials
+                    </li>
+
+                    <li>
+                        ✔ Racing Challenges
+                    </li>
+
+                    <li>
+                        ✔ Lap-Time Competition
+                    </li>
+
+                    <li>
+                        ✔ Full Racing Experience
+                    </li>
+
+                </ul>
+
+
+                <div class="details-buttons">
+
+                    <a href="#booking" class="btn">
+                        BOOK THIS PACKAGE
+                    </a>
+
+                    <a href="#packages" class="btn">
+                        BACK TO PACKAGES
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ==================================================
+     ESCAPE ROOM CHALLENGE PAGE
+================================================== -->
+
+<section id="escape" class="page-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                ESCAPE <span>ROOM</span>
+            </h2>
+
+            <p>
+                Work together, solve the challenge and escape.
+            </p>
+
+        </div>
+
+
+        <div class="details-container">
+
+
+            <!-- PACKAGE IMAGE -->
+
+            <div class="details-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1511882150382-421056c89033?auto=format&fit=crop&w=1400&q=80"
+                    alt="Escape Room Challenge"
+                >
+
+            </div>
+
+
+            <!-- PACKAGE INFORMATION -->
+
+            <div class="details-content">
+
+                <h3>
+                    PACKAGE FEE
+                </h3>
+
+                <p class="price">
+                    R750
+                </p>
+
+
+                <h3>
+                    PURPOSE
+                </h3>
+
+                <p>
+
+                    The Escape Room Challenge is a
+                    team-based gaming experience where
+                    players must work together to solve
+                    puzzles, discover clues and complete
+                    challenges.
+
+                </p>
+
+                <p>
+
+                    Communication, teamwork and problem
+                    solving are the keys to completing the
+                    challenge before time runs out.
+
+                </p>
+
+
+                <h3>
+                    INCLUDES
+                </h3>
+
+                <ul class="package-list">
+
+                    <li>
+                        ✔ Digital Escape Room
+                    </li>
+
+                    <li>
+                        ✔ Team Challenge
+                    </li>
+
+                    <li>
+                        ✔ Themed Escape Room
+                    </li>
+
+                    <li>
+                        ✔ Digital Scorecard
+                    </li>
+
+                    <li>
+                        ✔ Team-Based Challenges
+                    </li>
+
+                    <li>
+                        ✔ Interactive Gaming Experience
+                    </li>
+
+                </ul>
+
+
+                <div class="details-buttons">
+
+                    <a href="#booking" class="btn">
+                        BOOK THIS PACKAGE
+                    </a>
+
+                    <a href="#packages" class="btn">
+                        BACK TO PACKAGES
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ==================================================
+     BOOKING PAGE
+================================================== -->
+
+<section id="booking" class="page-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                BOOK YOUR <span>EXPERIENCE</span>
+            </h2>
+
+            <p>
+                Complete the form below to create your booking quotation.
+            </p>
+
+        </div>
+
+
+        <!-- BOOKING FORM -->
+
+        <div class="booking-container">
+
+
+            <div class="booking-card">
+
+                <h3>
+                    CUSTOMER INFORMATION
+                </h3>
+
+
+                <div class="form-group">
+
+                    <label for="customerName">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="customerName"
+                        placeholder="Enter your full name"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="customerPhone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="customerPhone"
+                        placeholder="Enter your phone number"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="customerEmail">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="customerEmail"
+                        placeholder="Enter your email address"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="bookingDate">
+                        Booking Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="bookingDate"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="bookingTime">
+                        Booking Time
+                    </label>
+
+                    <input
+                        type="time"
+                        id="bookingTime"
+                    >
+
+                </div>
+
+
+            </div>
+
+
+            <!-- PACKAGE SELECTION -->
+
+            <div class="booking-card">
+
+                <h3>
+                    SELECT YOUR PACKAGE
+                </h3>
+
+
+                <div class="form-group">
+
+                    <label for="packageSelect">
+                        Package
+                    </label>
+
+                    <select id="packageSelect">
+
+                        <option value="">
+                            -- Select a Package --
+                        </option>
+
+                        <option value="Ultimate Gamer Pass" data-price="1500">
+                            Ultimate Gamer Pass — R1500
+                        </option>
+
+                        <option value="VIP Gaming Experience" data-price="1500">
+                            VIP Gaming Experience — R1500
+                        </option>
+
+                        <option value="Esports Training" data-price="1500">
+                            Esports Training — R1500
+                        </option>
+
+                        <option value="Birthday Party" data-price="1500">
+                            Birthday Party — R1500
+                        </option>
+
+                        <option value="Virtual Reality" data-price="750">
+                            Virtual Reality — R750
+                        </option>
+
+                        <option value="Racing Simulator" data-price="750">
+                            Racing Simulator — R750
+                        </option>
+
+                        <option value="Escape Room" data-price="750">
+                            Escape Room — R750
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="participants">
+                        Number of Participants
+                    </label>
+
+                    <input
+                        type="number"
+                        id="participants"
+                        min="1"
+                        value="1"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="discount">
+                        Discount
+                    </label>
+
+                    <select id="discount">
+
+                        <option value="0">
+                            No Discount — 0%
+                        </option>
+
+                        <option value="5">
+                            5% Discount
+                        </option>
+
+                        <option value="10">
+                            10% Discount
+                        </option>
+
+                        <option value="15">
+                            15% Discount
+                        </option>
+
+                        <option value="20">
+                            20% Discount
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- CALCULATION -->
+
+                <div class="calculation-box">
+
+                    <div class="calculation-row">
+
+                        <span>
+                            Package Price
+                        </span>
+
+                        <strong id="packagePrice">
+                            R0.00
+                        </strong>
+
+                    </div>
+
+
+                    <div class="calculation-row">
+
+                        <span>
+                            Participants
+                        </span>
+
+                        <strong id="participantDisplay">
+                            1
+                        </strong>
+
+                    </div>
+
+
+                    <div class="calculation-row">
+
+                        <span>
+                            Subtotal
+                        </span>
+
+                        <strong id="subtotal">
+                            R0.00
+                        </strong>
+
+                    </div>
+
+
+                    <div class="calculation-row">
+
+                        <span>
+                            Discount
+                        </span>
+
+                        <strong id="discountAmount">
+                            R0.00
+                        </strong>
+
+                    </div>
+
+
+                    <div class="calculation-row">
+
+                        <span>
+                            VAT (15%)
+                        </span>
+
+                        <strong id="vatAmount">
+                            R0.00
+                        </strong>
+
+                    </div>
+
+
+                    <div class="calculation-total">
+
+                        <span>
+                            TOTAL
+                        </span>
+
+                        <strong id="grandTotal">
+                            R0.00
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BUTTON -->
+
+                <button
+                    type="button"
+                    class="btn"
+                    id="calculateBooking"
+                >
+                    CALCULATE QUOTATION
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- QUOTATION AREA -->
+
+        <div
+            id="quotationResult"
+            class="quotation-result"
+        >
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ==================================================
+     CONTACT PAGE
+================================================== -->
+
+<section id="contact" class="page-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                CONTACT <span>US</span>
+            </h2>
+
+            <p>
+                Have a question? Get in touch with Next Level Gaming & Esports Arena.
+            </p>
+
+        </div>
+
+
+        <!-- CONTACT INFORMATION -->
+
+        <div class="contact-grid">
+
+
+            <!-- LOCATION -->
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    📍
+                </div>
+
+                <h3>
+                    LOCATION
+                </h3>
+
+                <p>
+                    Johannesburg, South Africa
+                </p>
+
+            </div>
+
+
+            <!-- PHONE -->
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    📞
+                </div>
+
+                <h3>
+                    PHONE
+                </h3>
+
+                <p>
+                    +27 00 000 0000
+                </p>
+
+            </div>
+
+
+            <!-- EMAIL -->
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    ✉
+                </div>
+
+                <h3>
+                    EMAIL
+                </h3>
+
+                <p>
+                    info@nextlevelgaming.co.za
+                </p>
+
+            </div>
+
+
+            <!-- OPENING HOURS -->
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    🕒
+                </div>
+
+                <h3>
+                    OPENING HOURS
+                </h3>
+
+                <p>
+                    Monday – Sunday
+                </p>
+
+                <p>
+                    09:00 – 22:00
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- CONTACT MESSAGE -->
+
+        <div class="contact-message">
+
+            <h3>
+                READY TO <span>LEVEL UP?</span>
+            </h3>
+
+            <p>
+
+                Whether you are looking for a gaming
+                experience, planning a birthday party,
+                organising a school outing or preparing
+                for an esports competition, our team is
+                ready to help.
+
+            </p>
+
+
+            <div class="contact-buttons">
+
+                <a href="#booking" class="btn">
+                    BOOK NOW
+                </a>
+
+                <a href="#packages" class="btn">
+                    VIEW PACKAGES
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ==================================================
+     CLOSE MAIN CONTENT
+================================================== -->
+
+</main>
+
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-content">
+
+
+            <div class="footer-logo">
+
+                NEXT <span>LEVEL</span>
+
+            </div>
+
+
+            <p>
+                Where Gamers Become Champions.
+            </p>
+
+
+            <div class="footer-links">
+
+                <a href="#home">
+                    Home
+                </a>
+
+                <a href="#about">
+                    About
+                </a>
+
+                <a href="#packages">
+                    Packages
+                </a>
+
+                <a href="#booking">
+                    Booking
+                </a>
+
+                <a href="#contact">
+                    Contact
+                </a>
+
+            </div>
+
+
+            <p class="copyright">
+
+                © 2026 Next Level Gaming & Esports Arena.
+                All Rights Reserved.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- ==================================================
+     JAVASCRIPT STARTS HERE
+================================================== -->
+
+<script>
+/* ==================================================
+   PAGE NAVIGATION
+================================================== */
+
+const pageSections = document.querySelectorAll(".page-section");
+
+const navigationLinks = document.querySelectorAll(
+    "#navbar a, .footer-links a, a.btn"
+);
+
+
+/* ==================================================
+   SHOW PAGE FUNCTION
+================================================== */
+
+function showPage(pageId){
+
+    /* Hide every page */
+
+    pageSections.forEach(function(section){
+
+        section.classList.remove("active-page");
+
+    });
+
+
+    /* Find the requested page */
+
+    const selectedPage = document.getElementById(pageId);
+
+
+    /* Show requested page */
+
+    if(selectedPage){
+
+        selectedPage.classList.add("active-page");
+
+    }
+
+
+    /* Update navigation */
+
+    document.querySelectorAll("#navbar a").forEach(function(link){
+
+        link.classList.remove("active");
+
+        const linkTarget = link.getAttribute("href");
+
+        if(linkTarget === "#" + pageId){
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+
+    /* Always return to the top */
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+
+    /* Close mobile menu */
+
+    const navbar = document.getElementById("navbar");
+
+    if(navbar){
+
+        navbar.classList.remove("active");
+
+    }
+
+}
+
+
+/* ==================================================
+   NAVIGATION CLICK EVENTS
+================================================== */
+
+navigationLinks.forEach(function(link){
+
+    link.addEventListener("click",function(event){
+
+        const target = this.getAttribute("href");
+
+
+        /* Only handle links that point to pages */
+
+        if(target && target.startsWith("#")){
+
+            event.preventDefault();
+
+
+            const pageId = target.substring(1);
+
+
+            showPage(pageId);
+
+        }
+
+    });
+
+});
+
+
+/* ==================================================
+   HOME PAGE ON STARTUP
+================================================== */
+
+showPage("home");
+/* ==================================================
+   MOBILE MENU
+================================================== */
+
+const menuToggle = document.getElementById("menuToggle");
+
+const navbar = document.getElementById("navbar");
+
+
+if(menuToggle){
+
+    menuToggle.addEventListener("click",function(){
+
+        navbar.classList.toggle("active");
+
+    });
+
+}
+
+
+/* ==================================================
+   CLOSE MOBILE MENU WHEN LINK IS CLICKED
+================================================== */
+
+document.querySelectorAll("#navbar a").forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+        navbar.classList.remove("active");
+
+    });
+
+});
+
+
+/* ==================================================
+   PREVENT EMPTY LINKS
+================================================== */
+
+document.querySelectorAll("a[href='#']").forEach(function(link){
+
+    link.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+    });
+
+});
+</script>
+
+</body>
+
+</html>

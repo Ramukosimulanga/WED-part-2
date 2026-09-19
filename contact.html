@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact | ELITE iPhone Store</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">ELITE<span>.</span></div>
+
+    <nav>
+        <a href="home.html">HOME</a>
+        <a href="shop.html">iPHONES</a>
+        <a href="about.html">ABOUT</a>
+        <a href="contact.html" class="active">CONTACT</a>
+    </nav>
+
+    <a href="cart.html" class="cart">
+        🛒 <span id="cartCount">0</span>
+    </a>
+</header>
+
+
+<!-- CONTACT HERO -->
+
+<section class="contact-hero">
+
+    <div class="contact-hero-content">
+
+        <p class="contact-label">GET IN TOUCH</p>
+
+        <h1>
+            LET'S TALK<br>
+            <span>ELITE.</span>
+        </h1>
+
+        <p>
+            Have a question about an iPhone, your order, or our services?
+            Our team is here to provide the support you need.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT MAIN -->
+
+<section class="contact-section">
+
+    <div class="contact-container">
+
+        <!-- LEFT SIDE -->
+
+        <div class="contact-information">
+
+            <p class="section-label">CONTACT INFORMATION</p>
+
+            <h2>
+                WE'RE HERE<br>
+                <span>TO HELP.</span>
+            </h2>
+
+            <p class="contact-description">
+                Whether you need assistance choosing your next iPhone,
+                want to track an order, or simply have a question,
+                reach out to the ELITE team.
+            </p>
+
+
+            <div class="contact-details">
+
+                <div class="contact-card">
+
+                    <div class="contact-icon">
+                        ✉
+                    </div>
+
+                    <div>
+                        <span>EMAIL</span>
+                        <strong>support@elite.com</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="contact-card">
+
+                    <div class="contact-icon">
+                        ☎
+                    </div>
+
+                    <div>
+                        <span>PHONE</span>
+                        <strong>+27 XX XXX XXXX</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="contact-card">
+
+                    <div class="contact-icon">
+                        ●
+                    </div>
+
+                    <div>
+                        <span>LOCATION</span>
+                        <strong>South Africa</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- BUSINESS HOURS -->
+
+            <div class="business-hours">
+
+                <div class="hours-heading">
+                    <span>BUSINESS HOURS</span>
+                </div>
+
+                <div class="hours-row">
+                    <span>MON – FRI</span>
+                    <strong>08:00 – 18:00</strong>
+                </div>
+
+                <div class="hours-row">
+                    <span>SATURDAY</span>
+                    <strong>09:00 – 16:00</strong>
+                </div>
+
+                <div class="hours-row">
+                    <span>SUNDAY</span>
+                    <strong>CLOSED</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE FORM -->
+
+        <div class="contact-form-container">
+
+            <div class="form-header">
+
+                <p class="section-label">SEND US A MESSAGE</p>
+
+                <h2>
+                    HOW CAN WE<br>
+                    <span>HELP?</span>
+                </h2>
+
+                <p>
+                    Complete the form below and our team will get back
+                    to you as soon as possible.
+                </p>
+
+            </div>
+
+
+            <form class="contact-form" onsubmit="sendMessage(); return false;">
+
+                <div class="form-group">
+
+                    <label for="contactName">FULL NAME</label>
+
+                    <input
+                        type="text"
+                        id="contactName"
+                        placeholder="Enter your full name"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="contactEmail">EMAIL ADDRESS</label>
+
+                    <input
+                        type="email"
+                        id="contactEmail"
+                        placeholder="you@example.com"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="contactSubject">SUBJECT</label>
+
+                    <input
+                        type="text"
+                        id="contactSubject"
+                        placeholder="How can we help?"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="contactMessage">MESSAGE</label>
+
+                    <textarea
+                        id="contactMessage"
+                        placeholder="Write your message here..."
+                    ></textarea>
+
+                </div>
+
+
+                <button type="submit" class="send-message">
+                    SEND MESSAGE
+                    <span>→</span>
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- LOCATION -->
+
+<section class="location-section">
+
+    <div class="location-overlay">
+
+        <div class="location-content">
+
+            <p class="contact-label">FIND US</p>
+
+            <h2>
+                VISIT <span>ELITE.</span>
+            </h2>
+
+            <p>
+                Experience our premium iPhone collection and discover
+                the latest Apple technology.
+            </p>
+
+
+            <div class="location-details">
+
+                <div>
+                    <span>LOCATION</span>
+                    <strong>South Africa</strong>
+                </div>
+
+                <div>
+                    <span>OPENING HOURS</span>
+                    <strong>MON – FRI: 08:00 – 18:00</strong>
+                </div>
+
+                <div>
+                    <span>SUPPORT</span>
+                    <strong>Available during business hours</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <div class="footer-brand">
+
+            <h2>ELITE<span>.</span></h2>
+
+            <p>
+                Premium iPhones. Exceptional technology.
+                The ELITE experience.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <h3>QUICK LINKS</h3>
+
+            <a href="home.html">HOME</a>
+            <a href="shop.html">iPHONES</a>
+            <a href="about.html">ABOUT</a>
+            <a href="contact.html">CONTACT</a>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <h3>CUSTOMER</h3>
+
+            <a href="cart.html">CART</a>
+            <a href="shop.html">BUY iPHONES</a>
+            <a href="contact.html">SUPPORT</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>© 2026 ELITE. All rights reserved.</p>
+
+        <p>Premium iPhone Collection</p>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+function sendMessage() {
+
+    const name = document.getElementById("contactName").value.trim();
+    const email = document.getElementById("contactEmail").value.trim();
+    const subject = document.getElementById("contactSubject").value.trim();
+    const message = document.getElementById("contactMessage").value.trim();
+
+
+    if (!name || !email || !subject || !message) {
+
+        alert("Please complete all fields before sending your message.");
+
+        return;
+    }
+
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+    if (!emailPattern.test(email)) {
+
+        alert("Please enter a valid email address.");
+
+        return;
+    }
+
+
+    alert(
+        "Thank you, " +
+        name +
+        "! Your message has been received."
+    );
+
+
+    document.getElementById("contactName").value = "";
+    document.getElementById("contactEmail").value = "";
+    document.getElementById("contactSubject").value = "";
+    document.getElementById("contactMessage").value = "";
+
+}
+
+
+function updateCartCount() {
+
+    let cart =
+        JSON.parse(localStorage.getItem("eliteCart")) || [];
+
+    const cartCount =
+        document.getElementById("cartCount");
+
+
+    if (cartCount) {
+
+        cartCount.textContent = cart.length;
+
+    }
+
+}
+
+
+updateCartCount();
+
+</script>
+
+</body>
+</html>

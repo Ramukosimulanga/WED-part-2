@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Us | ELITE iPhone Store</title>
+    <style>
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #050505;
+        color: white;
+        overflow-x: hidden;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+
+    
+
+    header {
+        width: 100%;
+        height: 85px;
+
+        padding: 0 7%;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        z-index: 1000;
+
+        background: rgba(5, 5, 5, 0.85);
+
+        backdrop-filter: blur(15px);
+
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+
+    .logo {
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+
+
+    .logo span {
+        color: #b8b8b8;
+    }
+
+
+    nav {
+        display: flex;
+        gap: 40px;
+    }
+
+
+    nav a {
+        position: relative;
+
+        font-size: 13px;
+        font-weight: 600;
+
+        letter-spacing: 1.5px;
+
+        color: #d5d5d5;
+
+        transition: 0.3s ease;
+    }
+
+
+    nav a:hover {
+        color: white;
+    }
+
+
+    nav a::after {
+        content: "";
+
+        position: absolute;
+
+        width: 0;
+        height: 2px;
+
+        left: 50%;
+        bottom: -8px;
+
+        background: white;
+
+        transform: translateX(-50%);
+
+        transition: 0.3s ease;
+    }
+
+
+    nav a:hover::after {
+        width: 100%;
+    }
+
+
+    .cart {
+        font-size: 20px;
+
+        cursor: pointer;
+
+        transition: 0.3s ease;
+    }
+
+
+    .cart:hover {
+        transform: scale(1.15);
+    }
+  
+.about-hero {
+    min-height: 100vh;
+
+    padding: 160px 7% 100px;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 80% 45%,
+            rgba(255,255,255,0.08),
+            transparent 35%
+        ),
+        #050505;
+}
+
+
+.about-content {
+    max-width: 850px;
+
+    animation: aboutFadeIn 1.2s ease forwards;
+}
+
+
+.about-label {
+    margin-bottom: 22px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 5px;
+
+    color: #888;
+}
+
+
+.about-hero h1 {
+    font-size: clamp(60px, 8vw, 115px);
+
+    line-height: 0.95;
+
+    letter-spacing: -5px;
+
+    margin-bottom: 35px;
+}
+
+
+.about-hero h1 span {
+    color: #aaa;
+}
+
+
+.about-intro {
+    max-width: 700px;
+
+    font-size: 20px;
+
+    line-height: 1.7;
+
+    color: #d0d0d0;
+
+    margin-bottom: 22px;
+}
+
+
+.about-text {
+    max-width: 650px;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    color: #777;
+}
+
+
+@keyframes aboutFadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+.about-story {
+    padding: 120px 7%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 40px;
+
+    background: #080808;
+}
+
+
+.story-box,
+.mission-box {
+    padding: 55px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    background: rgba(255,255,255,0.025);
+
+    transition: 0.4s ease;
+}
+
+
+.story-box:hover,
+.mission-box:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(255,255,255,0.2);
+}
+
+
+.story-box h2,
+.mission-box h2 {
+    font-size: 45px;
+
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 30px;
+}
+
+
+.story-box h2 span,
+.mission-box h2 span {
+    color: #999;
+}
+
+
+.story-box p:not(.about-label),
+.mission-box p:not(.about-label):not(.mission-highlight) {
+    color: #777;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    margin-bottom: 20px;
+}
+
+
+.mission-line {
+    width: 70px;
+
+    height: 2px;
+
+    background: white;
+
+    margin: 30px 0;
+}
+
+
+.mission-highlight {
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    color: #aaa;
+}
+
+.why-elite {
+    padding: 120px 7%;
+
+    background: #050505;
+}
+
+
+.section-heading {
+    max-width: 650px;
+
+    margin-bottom: 60px;
+}
+
+
+.section-heading h2 {
+    font-size: 55px;
+
+    line-height: 1;
+
+    letter-spacing: -3px;
+
+    margin-bottom: 20px;
+}
+
+
+.section-heading h2 span {
+    color: #999;
+}
+
+
+.section-heading > p:last-child {
+    color: #777;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+.why-container {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+.why-card {
+    min-height: 280px;
+
+    padding: 40px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    background: #090909;
+
+    transition: 0.4s ease;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.why-card:hover {
+    transform: translateY(-10px);
+
+    border-color: rgba(255,255,255,0.25);
+}
+
+
+.why-number {
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    color: #666;
+
+    margin-bottom: 55px;
+}
+
+
+.why-card h3 {
+    font-size: 17px;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 18px;
+}
+
+
+.why-card p {
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+.about-cta {
+    min-height: 65vh;
+
+    padding: 120px 7%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,0.09),
+            transparent 45%
+        ),
+        #080808;
+
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+
+.cta-content {
+    max-width: 750px;
+}
+
+
+.cta-content h2 {
+    font-size: clamp(50px, 7vw, 90px);
+
+    line-height: 0.95;
+
+    letter-spacing: -4px;
+
+    margin-bottom: 30px;
+}
+
+
+.cta-content h2 span {
+    color: #999;
+}
+
+
+.cta-content > p:not(.about-label) {
+    max-width: 550px;
+
+    margin: 0 auto 35px;
+
+    color: #777;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+.cta-button {
+    display: inline-block;
+
+    padding: 17px 32px;
+
+    background: white;
+
+    color: black;
+
+    border-radius: 50px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    transition: 0.3s ease;
+}
+
+
+.cta-button:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 15px 40px rgba(255,255,255,0.18);
+}
+
+@media (max-width: 900px) {
+
+    nav {
+        gap: 20px;
+    }
+
+    .about-hero {
+        padding: 140px 6% 80px;
+    }
+
+    .about-story {
+        grid-template-columns: 1fr;
+
+        padding: 90px 6%;
+    }
+
+    .why-elite {
+        padding: 90px 6%;
+    }
+
+    .why-container {
+        grid-template-columns: 1fr;
+    }
+
+    .about-cta {
+        padding: 100px 6%;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    header {
+        height: 70px;
+
+        padding: 0 6%;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .cart {
+        font-size: 18px;
+    }
+
+
+    
+
+    .about-hero {
+        min-height: 100vh;
+
+        padding: 120px 6% 70px;
+    }
+
+    .about-label {
+        font-size: 10px;
+
+        letter-spacing: 3px;
+    }
+
+    .about-hero h1 {
+        font-size: 52px;
+
+        letter-spacing: -3px;
+    }
+
+    .about-intro {
+        font-size: 16px;
+    }
+
+    .about-text {
+        font-size: 14px;
+    }
+
+
+
+    .about-story {
+        padding: 70px 6%;
+
+        gap: 20px;
+    }
+
+    .story-box,
+    .mission-box {
+        padding: 30px;
+    }
+
+    .story-box h2,
+    .mission-box h2 {
+        font-size: 34px;
+
+        letter-spacing: -1px;
+    }
+
+
+
+    .why-elite {
+        padding: 70px 6%;
+    }
+
+    .section-heading h2 {
+        font-size: 42px;
+
+        letter-spacing: -2px;
+    }
+
+    .why-card {
+        min-height: auto;
+
+        padding: 30px;
+    }
+
+    .why-number {
+        margin-bottom: 35px;
+    }
+
+
+
+
+    .about-cta {
+        min-height: 70vh;
+
+        padding: 80px 6%;
+    }
+
+    .cta-content h2 {
+        font-size: 48px;
+
+        letter-spacing: -2px;
+    }
+
+    .cta-button {
+        padding: 15px 25px;
+    }
+
+}
+</style>
+
+</head>
+
+<body>
+ <header>
+
+    <div class="logo">
+        ELITE <span>iPHONE</span>
+    </div>
+
+    <nav>
+
+        <a href="assignment.html">HOME</a>
+
+        <a href="about.html">ABOUT</a>
+
+        <a href="shop.html">iPHONE</a>
+
+        <a href="contact.html">CONTACT</a>
+
+    </nav>
+
+    <a href="cart.html" class="cart">
+    🛒
+</a>
+
+</header>   
+<section class="about-hero">
+
+    <div class="about-content">
+
+        <p class="about-label">
+            ABOUT ELITE
+        </p>
+
+        <h1>
+            TECHNOLOGY.<br>
+            <span>REDEFINED.</span>
+        </h1>
+
+        <p class="about-intro">
+            ELITE iPhone Store is a premium technology store
+            dedicated to bringing customers a carefully selected
+            range of iPhone devices, from the iPhone 11 to the
+            latest generation.
+        </p>
+
+        <p class="about-text">
+            We believe that buying a smartphone should be more
+            than simply choosing a device. It should be an
+            experience built around quality, innovation, design
+            and confidence.
+        </p>
+
+    </div>
+
+</section>
+<section class="about-story">
+
+    <div class="story-box">
+
+        <p class="about-label">
+            OUR STORY
+        </p>
+
+        <h2>
+            MORE THAN A<br>
+            <span>SMARTPHONE STORE.</span>
+        </h2>
+
+        <p>
+            ELITE was created with one simple idea:
+            make premium smartphone technology easier
+            to discover and access.
+        </p>
+
+        <p>
+            From the iPhone 11 to the latest iPhone 18,
+            our goal is to give customers a professional
+            shopping experience where technology, design
+            and reliability come together.
+        </p>
+
+    </div>
+
+
+    <div class="mission-box">
+
+        <p class="about-label">
+            OUR MISSION
+        </p>
+
+        <h2>
+            BUILT FOR THE<br>
+            <span>NEXT GENERATION.</span>
+        </h2>
+
+        <p>
+            We aim to provide customers with quality
+            iPhone options while making the buying
+            experience simple, modern and trustworthy.
+        </p>
+
+        <div class="mission-line"></div>
+
+        <p class="mission-highlight">
+            INNOVATION • QUALITY • EXPERIENCE
+        </p>
+
+    </div>
+
+</section>
+<section class="why-elite">
+
+    <div class="section-heading">
+
+        <p class="about-label">
+            WHY ELITE
+        </p>
+
+        <h2>
+            WHY CHOOSE <span>US?</span>
+        </h2>
+
+        <p>
+            A premium shopping experience built around
+            technology, quality and customer satisfaction.
+        </p>
+
+    </div>
+
+
+    <div class="why-container">
+
+        <div class="why-card">
+
+            <div class="why-number">
+                01
+            </div>
+
+            <h3>
+                PREMIUM SELECTION
+            </h3>
+
+            <p>
+                Explore a carefully selected range of
+                iPhone models from iPhone 11 through
+                iPhone 18.
+            </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+            <div class="why-number">
+                02
+            </div>
+
+            <h3>
+                MODERN EXPERIENCE
+            </h3>
+
+            <p>
+                Browse our products through a clean,
+                modern and easy-to-use online shopping
+                experience.
+            </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+            <div class="why-number">
+                03
+            </div>
+
+            <h3>
+                CUSTOMER FIRST
+            </h3>
+
+            <p>
+                We focus on making every customer's
+                journey simple, professional and
+                enjoyable.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+<section class="about-cta">
+
+    <div class="cta-content">
+
+        <p class="about-label">
+            READY TO EXPLORE?
+        </p>
+
+        <h2>
+            FIND YOUR<br>
+            <span>PERFECT iPHONE.</span>
+        </h2>
+
+        <p>
+            Discover our collection of iPhone models
+            and find the technology that fits your world.
+        </p>
+
+        <a href="shop.html" class="cta-button">
+            EXPLORE THE COLLECTION
+        </a>
+
+    </div>
+
+</section>
+</body>
+
+</html>

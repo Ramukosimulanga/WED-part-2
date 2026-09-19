@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cart | ELITE iPhone Store</title>
+    <style>
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #050505;
+    color: white;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+
+header {
+    width: 100%;
+    height: 85px;
+
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    z-index: 1000;
+
+    background: rgba(5, 5, 5, 0.85);
+
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #b8b8b8;
+}
+
+nav {
+    display: flex;
+    gap: 40px;
+}
+
+nav a {
+    position: relative;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    letter-spacing: 1.5px;
+
+    color: #d5d5d5;
+
+    transition: 0.3s ease;
+}
+
+nav a:hover {
+    color: white;
+}
+
+nav a::after {
+    content: "";
+
+    position: absolute;
+
+    width: 0;
+    height: 2px;
+
+    left: 50%;
+    bottom: -8px;
+
+    background: white;
+
+    transform: translateX(-50%);
+
+    transition: 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.cart {
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.cart:hover {
+    transform: scale(1.15);
+}
+
+
+
+.cart-section {
+    min-height: 100vh;
+
+    padding: 150px 7% 100px;
+
+    background:
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(255,255,255,0.06),
+            transparent 35%
+        ),
+        #050505;
+}
+
+
+
+
+.cart-heading {
+    max-width: 700px;
+
+    margin-bottom: 60px;
+}
+
+.cart-label {
+    margin-bottom: 20px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+
+    color: #777;
+}
+
+.cart-heading h1 {
+    font-size: clamp(55px, 8vw, 95px);
+
+    line-height: 0.95;
+
+    letter-spacing: -5px;
+
+    margin-bottom: 25px;
+}
+
+.cart-heading h1 span {
+    color: #999;
+}
+
+.cart-heading > p:last-child {
+    max-width: 550px;
+
+    color: #777;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+
+.cart-container {
+    display: grid;
+
+    grid-template-columns: 1fr 380px;
+
+    gap: 30px;
+
+    align-items: start;
+}
+
+
+
+
+.cart-items {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.cart-item {
+    min-height: 160px;
+
+    padding: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    background: #0b0b0b;
+
+    transition: 0.3s ease;
+}
+
+.cart-item:hover {
+    border-color: rgba(255,255,255,0.2);
+}
+
+.cart-item img {
+    width: 120px;
+
+    height: 120px;
+
+    object-fit: contain;
+
+    background: rgba(255,255,255,0.03);
+
+    border-radius: 8px;
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item-info h3 {
+    font-size: 22px;
+
+    margin-bottom: 8px;
+}
+
+.cart-item-info p {
+    color: #666;
+
+    font-size: 12px;
+
+    margin-bottom: 15px;
+}
+
+.cart-item-info strong {
+    font-size: 16px;
+}
+
+.remove-item {
+    padding: 10px 15px;
+
+    background: transparent;
+
+    border: 1px solid rgba(255,255,255,0.18);
+
+    color: #aaa;
+
+    border-radius: 30px;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.remove-item:hover {
+    background: white;
+
+    color: black;
+}
+
+
+
+
+.cart-summary {
+    padding: 35px;
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    background: #0b0b0b;
+
+    position: sticky;
+
+    top: 110px;
+}
+
+.cart-summary h2 {
+    font-size: 18px;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 30px;
+}
+
+.summary-row {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+}
+
+.summary-row span {
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: #666;
+}
+
+.summary-row strong {
+    font-size: 14px;
+}
+
+.summary-line {
+    height: 1px;
+
+    background: rgba(255,255,255,0.1);
+
+    margin: 25px 0;
+}
+
+.summary-total {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 30px;
+}
+
+.summary-total span {
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.summary-total strong {
+    font-size: 22px;
+}
+
+
+
+
+.checkout-button {
+    width: 100%;
+
+    padding: 16px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    background: white;
+
+    color: black;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.checkout-button:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 35px rgba(255,255,255,0.15);
+}
+
+.continue-shopping {
+    display: block;
+
+    margin-top: 20px;
+
+    text-align: center;
+
+    color: #777;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    transition: 0.3s ease;
+}
+
+.continue-shopping:hover {
+    color: white;
+}
+
+
+
+.empty-cart {
+    padding: 80px 30px;
+
+    text-align: center;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    background: #0b0b0b;
+}
+
+.empty-cart h2 {
+    font-size: 25px;
+
+    margin-bottom: 15px;
+}
+
+.empty-cart p {
+    color: #666;
+
+    font-size: 14px;
+
+    margin-bottom: 25px;
+}
+
+.empty-cart a {
+    display: inline-block;
+
+    padding: 14px 25px;
+
+    border-radius: 30px;
+
+    background: white;
+
+    color: black;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+
+
+
+@media (max-width: 900px) {
+
+    nav {
+        gap: 20px;
+    }
+
+    .cart-container {
+        grid-template-columns: 1fr;
+    }
+
+    .cart-summary {
+        position: relative;
+
+        top: 0;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    header {
+        height: 70px;
+
+        padding: 0 6%;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .cart {
+        font-size: 18px;
+    }
+
+    .cart-section {
+        padding: 110px 6% 70px;
+    }
+
+    .cart-heading h1 {
+        font-size: 55px;
+
+        letter-spacing: -3px;
+    }
+
+    .cart-item {
+        padding: 20px;
+
+        flex-wrap: wrap;
+
+        gap: 15px;
+    }
+
+    .cart-item img {
+        width: 90px;
+
+        height: 90px;
+    }
+
+    .cart-item-info h3 {
+        font-size: 18px;
+    }
+
+    .remove-item {
+        width: 100%;
+    }
+
+    .cart-summary {
+        padding: 25px;
+    }
+
+}
+.cart {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+#cartCount {
+    font-size: 11px;
+    font-weight: 700;
+}
+
+</style>
+
+</head>
+
+<body>
+<header>
+
+    <div class="logo">
+        ELITE <span>iPHONE</span>
+    </div>
+
+    <nav>
+
+        <a href="assignment.html">HOME</a>
+
+        <a href="about.html">ABOUT</a>
+
+        <a href="shop.html">SHOP</a>
+
+        <a href="contact.html">CONTACT</a>
+
+    </nav>
+
+    <a href="cart.html" class="cart">
+    🛒 <span id="cartCount">0</span>
+</a>
+
+</header>
+<section class="cart-section">
+
+    <div class="cart-heading">
+
+        <p class="cart-label">
+            ELITE SHOPPING BAG
+        </p>
+
+        <h1>
+            YOUR <span>CART.</span>
+        </h1>
+
+        <p>
+            Review the products you have selected
+            before continuing to checkout.
+        </p>
+
+    </div>
+
+
+    <div class="cart-container">
+
+        <div class="cart-items" id="cartItems">
+
+            <!-- Products will appear here -->
+
+        </div>
+
+
+        <div class="cart-summary">
+
+            <h2>
+                ORDER SUMMARY
+            </h2>
+
+            <div class="summary-row">
+
+                <span>
+                    SUBTOTAL
+                </span>
+
+                <strong id="cartTotal">
+                    R0
+                </strong>
+
+            </div>
+
+            <div class="summary-row">
+
+                <span>
+                    DELIVERY
+                </span>
+
+                <strong>
+                    FREE
+                </strong>
+
+            </div>
+
+            <div class="summary-line"></div>
+
+            <div class="summary-total">
+
+                <span>
+                    TOTAL
+                </span>
+
+                <strong id="finalTotal">
+                    R0
+                </strong>
+
+            </div>
+
+           <a href="checkout.html" class="checkout-button">
+    PROCEED TO CHECKOUT
+</a>
+
+            <a href="shop.html" class="continue-shopping">
+                CONTINUE SHOPPING
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+<script>
+
+function loadCart() {
+
+    let cart = JSON.parse(localStorage.getItem("eliteCart")) || [];
+
+    const cartItems = document.getElementById("cartItems");
+
+    const cartTotal = document.getElementById("cartTotal");
+
+    const finalTotal = document.getElementById("finalTotal");
+
+
+    cartItems.innerHTML = "";
+
+    let total = 0;
+
+
+    if (cart.length === 0) {
+
+        cartItems.innerHTML = `
+            <div class="empty-cart">
+
+                <h2>
+                    YOUR CART IS EMPTY
+                </h2>
+
+                <p>
+                    Explore our collection and choose
+                    your perfect iPhone.
+                </p>
+
+                <a href="shop.html">
+                    EXPLORE THE COLLECTION
+                </a>
+
+            </div>
+        `;
+
+        cartTotal.textContent = "R0";
+
+        finalTotal.textContent = "R0";
+
+        return;
+    }
+
+
+    cart.forEach((product, index) => {
+
+        total += product.price;
+
+
+        const item = document.createElement("div");
+
+        item.className = "cart-item";
+
+
+        item.innerHTML = `
+
+            <img
+                src="${product.image}"
+                alt="${product.name}"
+            >
+
+            <div class="cart-item-info">
+
+                <h3>
+                    ${product.name}
+                </h3>
+
+                <p>
+                    Premium iPhone
+                </p>
+
+                <strong>
+                    R${product.price.toLocaleString()}
+                </strong>
+
+            </div>
+
+
+            <button
+                class="remove-item"
+                onclick="removeItem(${index})"
+            >
+                REMOVE
+            </button>
+
+        `;
+
+
+        cartItems.appendChild(item);
+
+    });
+
+
+    cartTotal.textContent =
+        "R" + total.toLocaleString();
+
+
+    finalTotal.textContent =
+        "R" + total.toLocaleString();
+
+}
+
+
+function removeItem(index) {
+
+    let cart =
+        JSON.parse(localStorage.getItem("eliteCart")) || [];
+
+
+    cart.splice(index, 1);
+
+
+    localStorage.setItem(
+        "eliteCart",
+        JSON.stringify(cart)
+    );
+
+
+    loadCart();
+
+}
+
+
+loadCart();
+
+</script>
+<script>
+
+function updateCartCount() {
+
+    let cart =
+        JSON.parse(localStorage.getItem("eliteCart")) || [];
+
+    const cartCount =
+        document.getElementById("cartCount");
+
+    if (cartCount) {
+        cartCount.textContent = cart.length;
+    }
+
+}
+
+updateCartCount();
+
+</script>
+</body>
+
+</html>

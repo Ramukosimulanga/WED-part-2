@@ -1,0 +1,606 @@
+DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>iPhone 13 | ELITE iPhone Store</title>
+<style>
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #050505;
+    color: white;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+
+header {
+    width: 100%;
+    height: 85px;
+
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    z-index: 1000;
+
+    background: rgba(5, 5, 5, 0.85);
+
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #b8b8b8;
+}
+
+nav {
+    display: flex;
+    gap: 40px;
+}
+
+nav a {
+    position: relative;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    letter-spacing: 1.5px;
+
+    color: #d5d5d5;
+
+    transition: 0.3s ease;
+}
+
+nav a:hover {
+    color: white;
+}
+
+nav a::after {
+    content: "";
+
+    position: absolute;
+
+    width: 0;
+    height: 2px;
+
+    left: 50%;
+    bottom: -8px;
+
+    background: white;
+
+    transform: translateX(-50%);
+
+    transition: 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.cart {
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.cart:hover {
+    transform: scale(1.15);
+}
+
+
+
+
+.product-detail {
+    min-height: 100vh;
+
+    padding: 150px 7% 80px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 80px;
+
+    background:
+        radial-gradient(
+            circle at 25% 50%,
+            rgba(255,255,255,0.08),
+            transparent 35%
+        ),
+        #050505;
+}
+
+
+
+.product-detail-image {
+    height: 650px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+}
+
+.product-detail-image::before {
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.07);
+
+    filter: blur(100px);
+}
+
+.product-detail-image img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    position: relative;
+
+    z-index: 2;
+
+    filter:
+        drop-shadow(0 30px 50px rgba(0,0,0,0.5));
+
+    transition: 0.5s ease;
+}
+
+.product-detail-image:hover img {
+    transform: scale(1.04);
+}
+
+
+
+.product-detail-content {
+    max-width: 600px;
+
+    animation: productFadeIn 1s ease forwards;
+}
+
+.product-label {
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+
+    color: #777;
+
+    margin-bottom: 20px;
+}
+
+.product-detail-content h1 {
+    font-size: clamp(55px, 7vw, 90px);
+
+    line-height: 0.95;
+
+    letter-spacing: -4px;
+
+    margin-bottom: 20px;
+}
+
+.product-subtitle {
+    font-size: 20px;
+
+    color: #ccc;
+
+    margin-bottom: 25px;
+}
+
+.product-description {
+    max-width: 520px;
+
+    color: #777;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    margin-bottom: 30px;
+}
+
+
+
+
+.product-price {
+    font-size: 30px;
+
+    font-weight: 700;
+
+    margin-bottom: 35px;
+}
+
+
+
+
+.product-specs {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+
+    margin-bottom: 35px;
+}
+
+.product-specs div {
+    padding: 18px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    background: rgba(255,255,255,0.025);
+}
+
+.product-specs span {
+    display: block;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color: #666;
+
+    margin-bottom: 8px;
+}
+
+.product-specs strong {
+    font-size: 13px;
+
+    color: #ddd;
+}
+
+
+
+
+
+.product-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.add-cart {
+    border: none;
+
+    padding: 16px 30px;
+
+    border-radius: 50px;
+
+    background: white;
+
+    color: black;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.add-cart:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 35px rgba(255,255,255,0.18);
+}
+
+.back-shop {
+    padding: 15px 25px;
+
+    border: 1px solid rgba(255,255,255,0.25);
+
+    border-radius: 50px;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    transition: 0.3s ease;
+}
+
+.back-shop:hover {
+    background: white;
+
+    color: black;
+}
+
+
+
+
+@keyframes productFadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+
+
+
+@media (max-width: 900px) {
+
+    nav {
+        gap: 20px;
+    }
+
+    .product-detail {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+        padding: 130px 6% 70px;
+    }
+
+    .product-detail-image {
+        height: 500px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    header {
+        height: 70px;
+
+        padding: 0 6%;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .product-detail {
+        padding: 110px 6% 60px;
+    }
+
+    .product-detail-image {
+        height: 400px;
+    }
+
+    .product-detail-content h1 {
+        font-size: 55px;
+
+        letter-spacing: -3px;
+    }
+
+    .product-subtitle {
+        font-size: 17px;
+    }
+
+    .product-specs {
+        grid-template-columns: 1fr;
+    }
+
+    .product-actions {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .add-cart,
+    .back-shop {
+        width: 100%;
+
+        text-align: center;
+    }
+
+}
+.cart {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+#cartCount {
+    font-size: 11px;
+    font-weight: 700;
+}
+</style>
+</head>
+
+<body>
+<header>
+
+    <div class="logo">
+        ELITE <span>iPHONE</span>
+    </div>
+
+    <nav>
+
+        <a href="assignment.html">HOME</a>
+
+        <a href="about.html">ABOUT</a>
+
+        <a href="shop.html">iPHONES</a>
+
+        <a href="contact.html">CONTACT</a>
+
+    </nav>
+
+    <a href="cart.html" class="cart">
+    🛒 <span id="cartCount">0</span>
+</a>
+
+</header>
+<section class="product-detail">
+
+    <div class="product-detail-image">
+
+        <img src="iphone-13.jpg" alt="iPhone 13">
+
+    </div>
+
+
+    <div class="product-detail-content">
+
+        <p class="product-label">
+            ELITE COLLECTION
+        </p>
+
+        <h1>
+            iPhone 13
+        </h1>
+
+        <p class="product-subtitle">
+            Powerful. Capable. Ready for anything.
+        </p>
+
+        <p class="product-description">
+            iPhone 13 delivers powerful performance with the A15 Bionic chip, an advanced dual-camera system and a stunning Super Retina XDR display. With 5G connectivity and excellent battery life, it is built for everyday performance and entertainment.
+        </p>
+
+
+        <div class="product-price">
+            R9,999
+        </div>
+
+
+        <div class="product-specs">
+
+            <div>
+                <span>CHIP</span>
+                <strong>A15 Bionic</strong>
+            </div>
+
+            <div>
+                <span>DISPLAY</span>
+                <strong> stunning Super Retina XDR display</strong>
+            </div>
+
+            <div>
+                <span>CAMERA</span>
+                <strong>Dual 12MP</strong>
+            </div>
+
+            <div>
+                <span>CONNECTIVITY</span>
+                <strong>5G LTE</strong>
+            </div>
+
+        </div>
+
+
+        <div class="product-actions">
+
+            <button class="add-cart" onclick="addToCart()">
+               ADD TO CART
+            </button>
+
+            <a href="shop.html" class="back-shop">
+                BACK TO SHOP
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+<script>
+
+function addToCart() {
+
+    const product = {
+        name: "iPhone 13",
+        price: 9999,
+        image: "iphone-13.jpg"
+    };
+
+    let cart = JSON.parse(localStorage.getItem("eliteCart")) || [];
+
+    cart.push(product);
+
+    localStorage.setItem("eliteCart", JSON.stringify(cart));
+
+    alert("iPhone 13 added!");
+
+}
+function updateCartCount() {
+
+    let cart =
+        JSON.parse(localStorage.getItem("eliteCart")) || [];
+
+    const cartCount =
+        document.getElementById("cartCount");
+
+    if (cartCount) {
+        cartCount.textContent = cart.length;
+    }
+
+}
+
+updateCartCount();
+</script>
+</body>
+
+</html>
